@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.2.1.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.2.1.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.2.1.css" />
+
+        <!--
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
+        <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
+        -->
+        <script src="js/phonegap.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+        <script src="js/modules/exporting.js"></script>
+        <script src="js/highcharts.js"></script>
+
+        <title>Hello no World</title>
+    </head>
+    <body>
+        <div data-role="page" id="home">
+
+            <!-- INICIO DO PAINEL -->
+            <div data-role="panel" id="mypanel"  data-display="overlay">
+                <!-- panel content goes here -->
+                <ul data-role="listview" >
+                    <li><a href="#" >Parte 01</a></li>
+                    <li><a href="#" >Parte 01</a></li>
+                    <li><a href="#">Parte 01</a></li>
+                </ul>
+            </div><!-- /panel -->
+            <!-- FIM DO PAINEL -->
+
+
+            <header data-role="header" data-position="fixed">
+                <h1>WeNovation</h1>
+                <a href="#mypanel" data-position="right" class="ui-btn-right" data-role="button" data-mini="true" >Menu</a>
+                <a href="index.html" class="ui-btn-left" data-role="button" data-rel="back" data-mini="true">Voltar</a>
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#home">Parte 01</a></li>
+                        <li><a href="#pagina" data-transition="flow">Graficos</a></li>
+                        <li><a href="index.html">Parte 03</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <section data-role="content">
+                <div class="app">
+                    <h1>WeNovation</h1>
+                    <div id="deviceready" class="blink">
+                        <p class="event listening">Connecting to Device</p>
+                        <p class="event received">Device is Ready</p>
+                    </div>
+                </div>
+
+
+            </section>
+
+            <footer data-role="footer" data-position="fixed">
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#" data-icon="grid" class="ui-btn-active">Pagina 01</a></li>
+                        <li><a href="#" data-icon="star">Pagina 02</a></li>
+                        <li><a href="#" data-icon="gear">Pagina 03</a></li>
+                    </ul>
+                </nav>
+            </footer>
+
+        </div>
+
+        <!-- PAGINA DOIS -->
+        <div data-role="page" id="pagina">
+
+            <!-- INICIO DO PAINEL -->
+            <div data-role="panel" id="mypanel"  data-display="overlay">
+                <!-- panel content goes here -->
+                <ul data-role="listview" >
+                    <li><a href="#" >Parte 01</a></li>
+                    <li><a href="#" >Parte 01</a></li>
+                    <li><a href="#">Parte 01</a></li>
+                </ul>
+            </div><!-- /panel -->
+
+        <header data-role="header" data-position="fixed">
+            <h1>WeNovation</h1>
+            <a href="#mypanel" data-position="right" class="ui-btn-right" data-role="button" data-mini="true" >Menu</a>
+            <a href="index.html" class="ui-btn-left" data-role="button" data-rel="back" data-mini="true">Voltar</a>
+            <nav data-role="navbar">
+                <ul>
+                    <li><a href="#home">Parte 01</a></li>
+                    <li><a href="#pagina">Graficos</a></li>
+                    <li><a href="index.html">Parte 03</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section data-role="content">
+            <a href="#janela" data-transition="slideup" data-rel="dialog" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-role="button" data-mini="true">Abrir janela</a>
+            <a href="#popup1" data-transition="slideup" data-rel="popup" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-role="button" data-mini="true">Abrir Popup</a>
+            <a href="#imagem" data-transition="fade" data-rel="popup" class=" ui-corner-all ui-btn-inline" ><img src="img/logo.png" alt="logo" width="30%"> </a>
+            <a href="#" onclick="capturePhoto()" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-role="button" data-mini="true">Camera</a>
+            <div id="container" style="max-width: 810px; height: 400px; margin: 0 auto"></div>
+
+        </section>
+
+        <div id="popup1" data-role="popup">
+            <p>Texte de exemplo para popup</p>
+        </div>
+            <div id="imagem" data-role="popup" data-corners="false">
+                <img src="img/logo.png" alt="logo">
+            </div>
+
+            <footer data-role="footer" data-position="fixed">
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#" data-icon="grid" class="ui-btn-active">Pagina 01</a></li>
+                        <li><a href="#" data-icon="star">Pagina 02</a></li>
+                        <li><a href="#" data-icon="gear">Pagina 03</a></li>
+                    </ul>
+                </nav>
+            </footer>
+
+        </div>
+
+        <!--  ------------- JANELA ------------------ -->
+
+        <div data-role="page" id="janela" data-close-btn="right">
+
+            <header data-role="header" data-position="fixed" data-theme="d">
+                <h1>WeNovation</h1>
+            </header>
+
+            <section data-role="content" data-theme="d">
+                <h3> TESTE PARA UMA NOVA JANELA</h3>
+                <a href="#" data-transition="slideup" data-rel="back" class="ui-btn-active" data-role="button" data-mini="true">Cancelar</a>
+            </section>
+
+
+        </div>
+
+        <script type="text/javascript" src="js/cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+    <script type="text/javascript">
+
+    </script>
+</html>
