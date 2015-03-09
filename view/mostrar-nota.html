@@ -43,8 +43,6 @@
 
     <script src="../js/modules/exporting.js"></script>
     <script src="../js/highcharts.js"></script>
-    <script type="text/javascript" src="../js/cadastro.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/cadastro.css" />
 
     <title>Hello no World</title>
 </head>
@@ -72,11 +70,8 @@
     <section data-role="content">
 
         <form id="chamadoForm">
-            <div class="form-group float-label-control">
-                <textarea rows="1" name="titulo" id="titulo" placeholder="Título..."></textarea>
-                <textarea rows="10" name="descricao" id="descricao" placeholder="Descrição..."></textarea>
-            </div>
-                <input class="ui-btn-active" data-role="button" onclick="return registrar()" data-theme="b" type="submit" value="Salvar">
+            <h2 id="titulo"></h2>
+            <p id="descricao"></p>
 
         </form>
     </section>

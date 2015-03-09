@@ -44,8 +44,13 @@
     <script src="../js/modules/exporting.js"></script>
     <script src="../js/highcharts.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="../css/listar.css" />
+    <script src="../js/listar.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/intellimen.css" />
+    <link rel="stylesheet" type="text/css" href="../css/intellimen.min.css" />
+
 </head>
-<body onload="getNota()">
+<body onload="getNota()" id="body">
 
 <script>
 
@@ -67,68 +72,123 @@
 
         //var temp= '<ul data-role="listview" >';
 
+        //alert(responde.rows.item);
         var temp= "";
+        var nota= "";
+        var painel= "";
         for(var i=0; i< responde.rows.length; i++ ){
-            temp += ' <li><a href="#" class="ui-btn"><h3>'+responde.rows.item(i).titulo+' </h3><p>'+responde.rows.item(i).descricao+'</p> <p class="ui-li-aside"> 23:23</p>  </a> </li>   ';
+            temp += ' <li><a href="#nota_'+i+'" data-transition="swipe" class="ui-btn"><h3>'+responde.rows.item(i).titulo+' </h3><p>'+responde.rows.item(i).descricao+'</p>  ' +
+            '  </a> <a href="#painel_'+i+'" rel="external" class="ui-btn  ui-li-aside" data-icon="plus"></a> ' +
+            '  </li>   ';
             /*
              $("#resposta").append(
              ' <li><a href="#" >'+responde.rows.item(i).titulo+'  </a></li> '
              );
              */
             //alert(temp);
+            nota += '<div data-role="page" id="nota_'+i+'"> <header data-role="header" data-theme="b" data-position="fixed"><h1>Notas</h1><a href="#" data-rel="back" class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-notext" data-icon="back"></a></header>' +
+                    ' <section data-role="content" id=""> <h3>'+responde.rows.item(i).titulo+'</h3> <p>'+responde.rows.item(i).descricao+'</p></section>' +
+                    '<footer data-role="footer" data-position="fixed"><div data-role="navbar" ><ul ><li><a href="noticia.html" rel="external" data-icon="grid" >Noticia</a></li><li><a href="desafio.html" data-icon="grid" data-transition="pop" rel="external"  >Desafio</a></li><li><a href="#" data-icon="grid" data-transition="pop" rel="external" class="ui-btn-active">Nota</a></li><li><a href="#" data-icon="grid" data-transition="pop" rel="external">Metas</a></li></ul></div></footer></div>' ;
+
+            painel += '<div data-role="panel" id="painel_'+i+'" data-theme="c" data-position="right"  data-display="overlay"><ul data-role="listview" >' +
+                        '<li><a href="#" rel="external" >Detalhes</a></li> <li><a href="#" rel="external" >Renomear</a></li><li><a href="#" rel="external" >Excluir</a></li>' +
+                        '</ul></div>';
+
+
         }
 
         //temp +='</ul>';
         //alert(temp);
         //div.innerHTML= temp;
-        $("#resposta").append(temp);
+        $("body").append(nota);
+        $("body").append(painel);
+        $("#list").append(temp);
     }
 
     function resultError(error){
         alert("error ocorreu: "+error);
     }
 
+    function mostrar(titulo,descricao){
+        var temp= '<h2>'+titulo+'</h2> <p>'+descricao+'</p>'
+        $("#addNota").append(temp);
+        //$("#notas").hide();
+        //$("#mostratNota").show();
+    }
+
+    $().ready(function(){
+
+        $("a#delete").hide();
+        $("a#add").hide();
+    });
+
 </script>
 
 
+
 <!-- ------------------------ PAGINA TODOS ------------------------------- -->
-<div data-role="page" id="chamados">
+<div data-role="page" id="notas">
 
     <!-- INICIO DO PAINEL -->
-    <div data-role="panel" id="mypanel" data-theme="b"  data-display="overlay">
+    <div data-role="panel" id="mypanel" data-theme="b"  data-display="push">
         <!-- panel content goes here -->
         <ul data-role="listview" >
             <li><a href="../index.html" rel="external" >Inicio</a></li>
         </ul>
     </div><!-- /panel -->
     <!-- FIM DO PAINEL -->
-
+    <div data-role="panel" id="painel_" data-theme="c" data-position="right"  data-display="overlay">
+        <!-- panel content goes here -->
+        <ul data-role="listview" >
+            <li><a href="#" rel="external" >Detalhes</a></li>
+            <li><a href="#" rel="external" >Renomear</a></li>
+            <li><a href="#" rel="external" >Excluir</a></li>
+        </ul>
+    </div><!-- /panel -->
 
     <!-- ------------------------------ TODOS ------------------------>
-    <header data-role="header" data-theme="b" data-position="fixed">
+    <header data-role="header" data-theme="a" data-position="fixed">
         <h1>Notas</h1>
+
         <a href="#mypanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext" data-icon="bars"></a>
         <a href="inserir-nota.html" rel="external" class="ui-btn ui-corner-all ui-icon-plus ui-btn-icon-notext" data-icon="plus"></a>
     </header>
-    <section data-role="content">
+    <section data-role="content" data-theme="c">
         <!-- <button onclick="getChamados()">Chamados</button> <br>-->
         <div >
-            <ul data-role="listview" id="resposta">
+            <ul data-role="listview" id="list" class="touch">
+                <li><a href="#nota_"><h2>titulo t</h2> <p>descricao d</p>
+                    <a href="#painel_" rel="external" class="ui-btn  ui-li-aside" data-icon="plus"></a></a></li>
             </ul>
+
         </div>
     </section>
-    <footer data-role="footer" data-position="fixed">
+    <footer data-role="footer" data-position="fixed" data-theme="e">
         <div data-role="navbar" >
             <ul >
                 <li><a href="noticia.html" rel="external" data-icon="grid" >Noticia</a></li>
                 <li><a href="desafio.html" data-icon="grid" data-transition="pop" rel="external"  >Desafio</a></li>
                 <li><a href="#" data-icon="grid" data-transition="pop" rel="external" class="ui-btn-active">Nota</a></li>
-                <li><a href="#" data-icon="grid" data-transition="pop" rel="external">Metas</a></li>
+                <li><a href="meta.html" data-icon="grid" data-transition="pop" rel="external">Metas</a></li>
             </ul>
         </div>
     </footer>
 
 </div>
+
+
+
+
+
+<!-- ------------------------------ ESPECIFICO ------------------------>
+    <div data-role="page" id="nota_"> <header data-role="header" data-theme="a" data-position="fixed">
+            <h1>Notas</h1>
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-notext" data-icon="back"></a></header>
+        <section data-theme="c" data-role="content" id="addNota">
+            <h1>Nota 01</h1>
+        </section><footer data-role="footer" data-theme="e" data-position="fixed"><div data-role="navbar" ><ul ><li><a href="noticia.html" rel="external" data-icon="grid" >Noticia</a></li><li><a href="desafio.html" data-icon="grid" data-transition="pop" rel="external"  >Desafio</a></li><li><a href="#" data-icon="grid" data-transition="pop" rel="external" class="ui-btn-active">Nota</a></li><li><a href="#" data-icon="grid" data-transition="pop" rel="external">Metas</a></li></ul></div></footer>
+
+    </div>
 
 
 <script type="text/javascript" src="../js/cordova.js"></script>

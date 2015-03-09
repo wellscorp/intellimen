@@ -26,7 +26,7 @@
     <meta name="msapplication-tap-highlight" content="no" />
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.2.1.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.2.1.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.2.1.css" />
@@ -44,17 +44,34 @@
     <script src="../js/modules/exporting.js"></script>
     <script src="../js/highcharts.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="../css/listar.css" />
+    <script src="../js/listar.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../css/intellimen.css" />
+    <link rel="stylesheet" type="text/css" href="../css/intellimen.min.css" />
+
 </head>
 <body onload="">
 
 <script>
 
+    $().ready(function(){
 
+        $("a#delete").hide();
+        $("a#add").hide();
+    });
+
+    function mudar(){
+        //$("").click(function(){});
+        //$("#desafios").hide();
+       // $("#desafio1").show();
+
+    }
 </script>
 
 
 <!-- ------------------------ PAGINA TODOS ------------------------------- -->
-<div data-role="page" id="chamados">
+<div data-role="page" id="desafios">
 
     <!-- INICIO DO PAINEL -->
     <div data-role="panel" id="mypanel" data-theme="b"  data-display="overlay">
@@ -64,40 +81,74 @@
         </ul>
     </div><!-- /panel -->
     <!-- FIM DO PAINEL -->
-
-
     <!-- ------------------------------ TODOS ------------------------>
-    <header data-role="header" data-theme="b" data-position="fixed">
+    <header data-role="header" data-theme="a" data-position="fixed">
         <h1>Desafios</h1>
         <a href="#mypanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext" data-icon="bars"></a>
         <div data-role="navbar">
             <ul>
                 <li><a href="#"> Feitos</a></li>
-                <li><a href="#"> Todos</a></li>
+                <li><a href="#" class="ui-btn-active"> Todos</a></li>
                 <li><a href="#"> Não Feitos</a></li>
             </ul>
         </div>
     </header>
-    <section data-role="content">
+    <section data-role="content" data-theme="c">
         <!-- <button onclick="getChamados()">Chamados</button> <br>-->
-        <div >
-            <ul data-role="listview" id="resposta">
-                <li><a href="#">
+        <div  >
+            <ul data-role="listview" id="list" class="touch" data-split-icon="delete">
+
+                <li><a href="#desafio1" id="dentro"  data-transition="slide">
                     <h3>Desafio 01</h3>
                     <p>Manifesto Intellimen</p>
                     <p class="ui-li-aside"> 23:23</p>
-                </a></li>
+                    <a href="#" id="" class="ui-btn  ui-icon-bars " data-icon="bars"></a>
+                </a><a href="#" id="delete" class="delete"></a></li>
+
                 <li><a href="#">
                     <h3>Desafio 02</h3>
                     <p>Identificar três coisas que você precisa melhorar sobre si mesmo.</p>
                     <p class="ui-li-aside"> 23:23</p>
-                </a></li>
+                    <a href="#" id="" class="ui-btn  ui-icon-bars " data-icon="bars"></a>
+                </a><a href="#" id="delete" class="delete"></a></li>
                 <li><a href="#">
                     <h3>Desafio 03</h3>
                     <p>Descobrir as suas qualidades principais.</p>
                     <p class="ui-li-aside"> 23:23</p>
-                </a></li>
+                    <a href="#" id="" class="ui-btn  ui-icon-bars " data-icon="bars"></a>
+                </a><a href="#" id="delete" class="delete"></a></li>
             </ul>
+        </div>
+
+    </section>
+    <footer data-role="footer" data-theme="e" data-position="fixed">
+        <div data-role="navbar" >
+            <ul >
+                <li><a href="noticia.html" rel="external" data-icon="grid" >Noticia</a></li>
+                <li><a href="#" data-icon="grid" data-transition="pop" rel="external"class="ui-btn-active"  >Desafio</a></li>
+                <li><a href="nota.html" data-icon="grid" data-transition="pop" rel="external">Nota</a></li>
+                <li><a href="#" data-icon="grid" data-transition="pop" rel="external">Metas</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</div>
+
+
+
+
+<div data-role="page" id="desafio1">
+
+    <!-- ------------------------------ TODOS ------------------------>
+    <header data-role="header" data-theme="b" data-position="fixed">
+        <h1>Desafios 01</h1>
+        <a href="#" data-rel="back" data-transition="slide" data-direction="reverse" class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-notext" data-icon="back"></a>
+        <div data-role="navbar">
+        </div>
+    </header>
+    <section data-role="content">
+        <div >
+            <h2>Desafio 01</h2>
         </div>
     </section>
     <footer data-role="footer" data-position="fixed">
@@ -112,6 +163,8 @@
     </footer>
 
 </div>
+
+
 
 
 <script type="text/javascript" src="../js/cordova.js"></script>

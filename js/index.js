@@ -69,7 +69,9 @@ var app = {
 function PopulateDatabase(tx){
 
     tx.executeSql("Create TABLE IF NOT EXISTS pessoa (ROLLNO INT, nome text, email text, senha text, dt_criacao numeric, hr_criacao numeric, dt_login numeric, dt_logout numeric )");
-    tx.executeSql("Create TABLE IF NOT EXISTS nota (ROLLNO INT, titulo text, descricao text, dt_criacao numeric, hr_criacao numeric)");
+    tx.executeSql("Create TABLE IF NOT EXISTS nota (ROLLNO INT PRIMARY KEY , titulo text, descricao text, dt_criacao numeric, hr_criacao numeric)");
+    tx.executeSql("Create TABLE IF NOT EXISTS desafio (ROLLNO INT PRIMARY KEY , titulo text, descricao text, explicacao text, status text)");
+    tx.executeSql("INSERT INTO desafio (titulo, descricao, explicacao) SELECT 'Desafio 1', 'Para começar, você vai tornar sua decisão pública e convidar alguém para começar o desafio com você.', 'Fale com alguém sobre o IntelliMen e convide-o para participar do grupo com você. Pode ser um amigo, irmão, colega no trabalho ou na igreja, primo, seu pai, seu filho, etc. Essa pessoa será o seu Parceiro Oficial no grupo. Vocês conversarão sobre os desafios, alguns terão de fazer juntos, um vai animar e ajudar o outro. Portanto, escolha alguém legal, que vai levar o projeto a sério e não te deixar na mão no meio do caminho. Melhor alguém que esteja perto de você, mas se não tiver alguém assim, pode ser alguém que esteja em outra cidade, estado ou país.' WHERE NOT EXISTS(SELECT 1 FROM desafio WHERE titulo = 'Desafio 1')");
     //tx.executeSql("Insert into chamado values(1,'titulo 01', 'descricao 01')");
 
 }
